@@ -8,7 +8,6 @@ data class Movie(
     val actors: List<String>
 )
 
-// Liste statique de films
 val movieList = listOf(
     Movie("Inception", R.drawable.inception, "A mind-bending thriller", listOf("Leonardo DiCaprio", "Joseph Gordon-Levitt")),
     Movie("Interstellar", R.drawable.inception, "A journey beyond the stars", listOf("Matthew McConaughey", "Anne Hathaway")),
