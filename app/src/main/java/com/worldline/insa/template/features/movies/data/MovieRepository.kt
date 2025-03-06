@@ -1,14 +1,15 @@
-package com.worldline.insa.template
+package com.worldline.insa.template.features.movies.data
 
+import com.worldline.insa.template.R
+import com.worldline.insa.template.features.movies.data.model.Movie
 
-data class Movie(
-    val title: String,
-    val poster: Int,
-    val description: String,
-    val actors: List<String>
-)
+class MovieRepository {
+    fun getMovieList(): List<Movie> = movieList
 
-val movieList = listOf(
+    fun getMovieDetail(title: String): Movie? = movieList.find { it.title == title }
+}
+
+private val movieList = listOf(
     Movie("Inception", R.drawable.inception, "A mind-bending thriller", listOf("Leonardo DiCaprio", "Joseph Gordon-Levitt")),
     Movie("Interstellar", R.drawable.inception, "A journey beyond the stars", listOf("Matthew McConaughey", "Anne Hathaway")),
     Movie("The Dark Knight", R.drawable.inception, "Gotham's hero rises", listOf("Christian Bale", "Heath Ledger")),
