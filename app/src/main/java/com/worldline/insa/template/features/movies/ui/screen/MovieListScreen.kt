@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.worldline.insa.template.features.movies.data.model.Movie
+import com.worldline.insa.template.features.movies.ui.viewmodel.MovieDetailState
 import com.worldline.insa.template.features.movies.ui.viewmodel.MovieListViewModel
 
 

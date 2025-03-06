@@ -6,7 +6,7 @@ import com.worldline.insa.template.features.movies.data.model.Movie
 class MovieRepository {
     fun getMovieList(): List<Movie> = movieList
 
-    fun getMovieDetail(title: String): Movie? = movieList.find { it.title == title }
+    fun getMovieDetail(title: String): Movie? = movieList.find { it.title == title && !it.isError}
 }
 
 private val movieList = listOf(
@@ -14,5 +14,5 @@ private val movieList = listOf(
     Movie("Interstellar", R.drawable.inception, "A journey beyond the stars", listOf("Matthew McConaughey", "Anne Hathaway")),
     Movie("The Dark Knight", R.drawable.inception, "Gotham's hero rises", listOf("Christian Bale", "Heath Ledger")),
     Movie("Pulp Fiction", R.drawable.inception, "A mix of crime and dark humor", listOf("John Travolta", "Samuel L. Jackson")),
-    Movie("Fight Club", R.drawable.inception, "An underground fight club", listOf("Brad Pitt", "Edward Norton"))
+    Movie("Fight Club", R.drawable.inception, "An underground fight club", listOf("Brad Pitt", "Edward Norton"), true)
 )

@@ -9,12 +9,12 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class MovieDetailViewModel(
-    private val getMovieDetailUseCase: GetMovieDetailUseCase,
+    private val getMovieDetail: GetMovieDetailUseCase,
     movieTitle: String
 ) : ViewModel() {
 
-    private val _movie = MutableStateFlow<Movie?>(null)
-    val movie: StateFlow<Movie?> = _movie
+    private val _movie = MutableStateFlow<MovieDetailState>(MovieDetailState.Loading)
+    val movie: StateFlow<MovieDetailState> = _movie
 
     init {
         fetchMovieDetail(movieTitle)
@@ -22,7 +22,18 @@ class MovieDetailViewModel(
 
     private fun fetchMovieDetail(title: String) {
         viewModelScope.launch {
-            _movie.value = getMovieDetailUseCase.execute(title)
+            val result = getMovieDetail(title)
+            if(result != null){
+                _movie.value = MovieDetailState.Success(movie = result)
+            } else{
+                _movie.value = MovieDetailState.Error
+            }
         }
     }
+}
+
+sealed class MovieDetailState {
+    data object Loading : MovieDetailState()
+    data object Error : MovieDetailState()
+    data class Success(val movie: Movie) : MovieDetailState()
 }
