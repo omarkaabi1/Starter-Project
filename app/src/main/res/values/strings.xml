@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Template</string>
+    <string name="movie_detail_actors_label">Actors</string>
+    <string name="movie_detail_loading_title">Loading</string>
+    <string name="movie_detail_error_title">No movie found</string>
+    <string name="movie_detail_error_details">Try again later</string>
 </resources>
