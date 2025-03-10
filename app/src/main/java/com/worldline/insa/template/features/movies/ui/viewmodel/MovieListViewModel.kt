@@ -7,9 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.worldline.insa.template.features.movies.data.model.Movie
 import com.worldline.insa.template.features.movies.data.repository.MovieRepository
+import com.worldline.insa.template.features.movies.domain.usecase.GetPopularMoviesUseCase
 import kotlinx.coroutines.launch
 
-class MovieListViewModel(private val movieRepository: MovieRepository) : ViewModel() {
+class MovieListViewModel(private val getPopularMoviesUseCase: GetPopularMoviesUseCase) : ViewModel() {
 
     private val _movies = MutableLiveData<List<Movie>>(emptyList())
     val movies: LiveData<List<Movie>> = _movies
@@ -21,13 +22,10 @@ class MovieListViewModel(private val movieRepository: MovieRepository) : ViewMod
     fun fetchMovies() {
         viewModelScope.launch {
             try {
-                val response = movieRepository.getPopularMovies("6beb73626089fde8c77c1cc6bcce699e")
-                _movies.value = response.results
-                Log.d("api", "Movies fetched successfully")
-                Log.d("API Response", response.toString())
+                val response = getPopularMoviesUseCase.execute("6beb73626089fde8c77c1cc6bcce699e")
+                _movies.value = response
             } catch (exception: Exception) {
                 _movies.value = emptyList()
-                Log.e("api", "Error fetching movies: ${exception.message}", exception)
             }
         }
     }

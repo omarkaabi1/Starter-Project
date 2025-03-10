@@ -1,6 +1,5 @@
 package com.worldline.insa.template.features.movies.ui.screen
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -43,7 +42,6 @@ fun MovieItem(movie: Movie, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         val imageUrl = "https://image.tmdb.org/t/p/w500${movie.poster_path}"
-        Log.d("image url","$imageUrl")
         Image(
             painter = rememberAsyncImagePainter(model = imageUrl),
             contentDescription = movie.title,

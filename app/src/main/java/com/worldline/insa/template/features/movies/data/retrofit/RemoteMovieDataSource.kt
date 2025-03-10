@@ -1,4 +1,3 @@
-import android.util.Log
 import com.example.app.api.MovieApi
 import com.worldline.insa.template.features.movies.data.model.MovieResponse
 import okhttp3.OkHttpClient
@@ -29,7 +28,6 @@ class RemoteMovieDataSource {
     }
 
     suspend fun getPopularMovies(apiKey: String): MovieResponse {
-        Log.d("api", "Fetching popular movies with API key: $apiKey")
         return movieApi.getPopularMovies(apiKey)
     }
 }
