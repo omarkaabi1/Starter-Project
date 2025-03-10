@@ -1,4 +1,5 @@
 package com.worldline.insa.template.features.movies.ui.viewmodel
+/*
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,6 +8,8 @@ import com.worldline.insa.template.features.movies.domain.usecase.GetMovieDetail
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+
+
 
 class MovieDetailViewModel(
     private val getMovieDetail: GetMovieDetailUseCase,
@@ -36,3 +39,4 @@ sealed class MovieDetailState {
     data object Error : MovieDetailState()
     data class Success(val movie: Movie) : MovieDetailState()
 }
+*/

@@ -72,6 +72,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.coil.compose)
     implementation(libs.androidx.benchmark.macro)
+    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -79,5 +80,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    debugImplementation(libs.retrofit)
+    debugImplementation (libs.converter.gson)
+    debugImplementation (libs.logging.interceptor)
+    debugImplementation (libs.androidx.lifecycle.viewmodel.ktx)
+    debugImplementation (libs.androidx.lifecycle.livedata.ktx)
+    debugImplementation (libs.androidx.lifecycle.runtime.ktx.v260)
+    implementation (libs.coil.compose.v222)
+    implementation (libs.okhttp)
+    implementation (libs.logging.interceptor.v4120)
+
 
 }

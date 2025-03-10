@@ -2,9 +2,24 @@ package com.worldline.insa.template.features.movies.data.model
 
 
 data class Movie(
+    val adult: Boolean,
+    val backdrop_path: String,
+    val genre_ids: List<Int>,
+    val id: Int,
+    val original_language: String,
+    val original_title: String,
+    val overview: String,
+    val popularity: Double,
+    val poster_path: String,
+    val release_date: String,
     val title: String,
-    val poster: Int,
-    val description: String,
-    val actors: List<String>,
-    val isError: Boolean = false
+    val video: Boolean,
+    val vote_average: Double,
+    val vote_count: Int
 )
+
+data class MovieResponse(
+    val page: Int,
+    val results: List<Movie>
+)
+

@@ -1,5 +1,5 @@
 package com.worldline.insa.template.features.movies.ui.screen
-
+/*
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -135,3 +135,6 @@ fun MovieDetailErrorPreview() {
 fun MovieLoadingPreview() {
     MovieLoading()
 }
+
+
+ */
