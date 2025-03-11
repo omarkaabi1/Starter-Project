@@ -1,4 +1,5 @@
-package com.worldline.insa.template.features.movies.data.model
+package com.worldline.insa.template.features.movies.domain.model
+
 
 
 data class Movie(
@@ -18,8 +19,4 @@ data class Movie(
     val vote_count: Int
 )
 
-data class MovieResponse(
-    val page: Int,
-    val results: List<Movie>
-)
 

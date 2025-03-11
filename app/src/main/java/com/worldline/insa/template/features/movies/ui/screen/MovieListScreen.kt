@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.worldline.insa.template.features.movies.data.model.Movie
+import com.worldline.insa.template.features.movies.domain.model.Movie
 import com.worldline.insa.template.features.movies.ui.viewmodel.MovieListViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,9 +41,8 @@ fun MovieItem(movie: Movie, onClick: () -> Unit) {
             .clickable { onClick() },
         verticalAlignment = Alignment.CenterVertically
     ) {
-        val imageUrl = "https://image.tmdb.org/t/p/w500${movie.poster_path}"
         Image(
-            painter = rememberAsyncImagePainter(model = imageUrl),
+            painter = rememberAsyncImagePainter(model = movie.poster_path),
             contentDescription = movie.title,
             modifier = Modifier.size(120.dp)
         )

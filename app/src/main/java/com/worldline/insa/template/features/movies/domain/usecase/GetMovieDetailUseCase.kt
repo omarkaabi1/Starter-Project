@@ -1,7 +1,6 @@
 package com.worldline.insa.template.features.movies.domain.usecase
 
 import com.worldline.insa.template.features.movies.data.repository.MovieRepository
-import com.worldline.insa.template.features.movies.data.model.Movie
 import kotlinx.coroutines.delay
 
 /*
