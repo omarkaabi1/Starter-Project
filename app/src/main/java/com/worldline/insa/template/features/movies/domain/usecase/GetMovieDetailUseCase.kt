@@ -1,13 +1,10 @@
 package com.worldline.insa.template.features.movies.domain.usecase
 
 import com.worldline.insa.template.features.movies.data.repository.MovieRepository
-import kotlinx.coroutines.delay
+import com.worldline.insa.template.features.movies.domain.model.Movie
 
-/*
-class GetMovieDetailUseCase(private val repository: MovieRepository) {
-    suspend operator fun invoke(title: String): Movie? {
-    delay(1500)
-        return repository.getMovieDetail(title)
+class GetMovieDetailUseCase(private val movieRepository: MovieRepository) {
+    suspend fun execute(movieId: Int): Movie {
+        return movieRepository.getMovieDetails(movieId)
     }
 }
-*/

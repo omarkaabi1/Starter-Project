@@ -1,31 +1,37 @@
 package com.worldline.insa.template.features.movies.data.repository
 
 import RemoteMovieDataSource
+import com.worldline.insa.template.features.movies.data.api.MovieResponseItem
 import com.worldline.insa.template.features.movies.domain.model.Movie
 
 class MovieRepository (private val remoteMovieDataSource: RemoteMovieDataSource){
     suspend fun getPopularMovies(): List<Movie> {
-        return remoteMovieDataSource.getPopularMovies().results.map { movieResponseItem ->
-
-            Movie(
-                adult = movieResponseItem.adult,
-                backdrop_path = movieResponseItem.backdrop,
-                genre_ids = movieResponseItem.genre,
-                id = movieResponseItem.id,
-                original_language = movieResponseItem.language,
-                original_title = movieResponseItem.originaltitle,
-                overview = movieResponseItem.overview,
-                popularity = movieResponseItem.popularity,
-                poster_path = "https://image.tmdb.org/t/p/w500${movieResponseItem.poster}",
-                release_date = movieResponseItem.date,
-                title = movieResponseItem.title,
-                video = movieResponseItem.video,
-                vote_average = movieResponseItem.average,
-                vote_count = movieResponseItem.count,
-
-            )
-        }
-
+        return remoteMovieDataSource.getPopularMovies().results.map { it.toMovie() }
     }
-}
+    suspend fun getMovieDetails(movieId: Int): Movie {
+        return remoteMovieDataSource.getMovieDetails(movieId).toMovie()
+    }
 
+    private fun MovieResponseItem.toMovie(): Movie {
+        return Movie(
+            adult = this.adult,
+            backdrop_path = this.backdrop,
+            id = this.id,
+            original_language = this.language,
+            original_title = this.originaltitle,
+            overview = this.overview,
+            popularity = this.popularity,
+            poster_path = "$IMAGE_URL${this.poster}",
+            release_date = this.date,
+            title = this.title,
+            video = this.video,
+            vote_average = this.average,
+            vote_count = this.count
+        )
+    }
+
+    companion object {
+        private const val IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+    }
+
+}

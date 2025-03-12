@@ -26,7 +26,7 @@ fun MovieListScreen(viewModel: MovieListViewModel, navController: NavController)
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding).padding(16.dp)) {
             items(movies) { movie ->
-                MovieItem(movie = movie) { navController.navigate("movieDetail/${movie.title}") }
+                MovieItem(movie = movie) { navController.navigate("movieDetail/${movie.id}") }
             }
         }
     }

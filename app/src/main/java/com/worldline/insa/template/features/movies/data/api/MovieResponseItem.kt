@@ -7,8 +7,6 @@ data class MovieResponseItem(
     val adult: Boolean,
     @SerializedName("backdrop_path")
     val backdrop: String,
-    @SerializedName("genre_ids")
-    val genre: List<Int>,
     val id: Int,
     @SerializedName("original_language")
     val language: String,

@@ -28,4 +28,5 @@ class MovieListViewModel(private val getPopularMoviesUseCase: GetPopularMoviesUs
         }
     }
 
+
 }

@@ -1,20 +1,15 @@
 import com.example.app.api.MovieApi
 import com.worldline.insa.template.features.movies.data.api.MovieResponse
+import com.worldline.insa.template.features.movies.data.api.MovieResponseItem
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class RemoteMovieDataSource {
 
     private val movieApi: MovieApi
-
     init {
-        val loggingInterceptor = HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }
-
         val apiKeyInterceptor = Interceptor { chain ->
             val originalRequest = chain.request()
             val originalUrl = originalRequest.url
@@ -32,7 +27,6 @@ class RemoteMovieDataSource {
 
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(apiKeyInterceptor)
-            .addInterceptor(loggingInterceptor)
             .build()
 
         val retrofit = Retrofit.Builder()
@@ -46,6 +40,9 @@ class RemoteMovieDataSource {
 
     suspend fun getPopularMovies(): MovieResponse {
         return movieApi.getPopularMovies()
+    }
+    suspend fun getMovieDetails(movieId: Int): MovieResponseItem {
+        return movieApi.getMovieDetails(movieId)
     }
 
     companion object{
