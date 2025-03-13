@@ -1,4 +1,4 @@
-import com.example.app.api.MovieApi
+import com.worldline.insa.template.features.movies.data.api.MovieApi
 import com.worldline.insa.template.features.movies.data.api.MovieResponse
 import com.worldline.insa.template.features.movies.data.api.MovieResponseItem
 import okhttp3.Interceptor

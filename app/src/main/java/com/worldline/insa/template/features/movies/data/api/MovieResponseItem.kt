@@ -11,7 +11,7 @@ data class MovieResponseItem(
     @SerializedName("original_language")
     val language: String,
     @SerializedName("original_title")
-    val originaltitle: String,
+    val originalTitle: String,
     val overview: String,
     val popularity: Double,
     @SerializedName("poster_path")

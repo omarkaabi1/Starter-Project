@@ -20,7 +20,7 @@ class MovieListViewModel(private val getPopularMoviesUseCase: GetPopularMoviesUs
     fun fetchMovies() {
         viewModelScope.launch {
             try {
-                val response = getPopularMoviesUseCase.execute()
+                val response = getPopularMoviesUseCase()
                 _movies.value = response
             } catch (exception: Exception) {
                 _movies.value = emptyList()

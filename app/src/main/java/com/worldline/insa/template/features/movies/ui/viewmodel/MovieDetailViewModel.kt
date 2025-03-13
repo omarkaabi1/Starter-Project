@@ -16,7 +16,7 @@ class MovieDetailViewModel(private val getMovieDetailUseCase: GetMovieDetailUseC
     fun fetchMovieDetails(movieId: Int) {
         viewModelScope.launch {
             try {
-                val movie = getMovieDetailUseCase.execute(movieId)
+                val movie = getMovieDetailUseCase(movieId)
                 _movieDetail.value = movie
             } catch (e: Exception) {
                 _movieDetail.value = null

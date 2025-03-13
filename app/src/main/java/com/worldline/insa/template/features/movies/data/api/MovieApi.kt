@@ -1,7 +1,5 @@
-package com.example.app.api
+package com.worldline.insa.template.features.movies.data.api
 
-import com.worldline.insa.template.features.movies.data.api.MovieResponse
-import com.worldline.insa.template.features.movies.data.api.MovieResponseItem
 import retrofit2.http.GET
 import retrofit2.http.Path
 

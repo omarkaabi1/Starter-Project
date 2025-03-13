@@ -89,6 +89,8 @@ dependencies {
     implementation (libs.coil.compose.v222)
     implementation (libs.okhttp)
     implementation (libs.logging.interceptor.v4120)
+    implementation(libs.koin.android)
+
 
 
 }

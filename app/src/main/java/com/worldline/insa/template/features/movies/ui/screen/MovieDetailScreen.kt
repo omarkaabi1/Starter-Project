@@ -47,7 +47,7 @@ fun MovieDetailScreen(viewModel: MovieDetailViewModel, movieId: Int, navControll
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
-                    painter = rememberAsyncImagePainter(model = it.poster_path),
+                    painter = rememberAsyncImagePainter(model = it.posterPath),
                     contentDescription = it.title,
                     modifier = Modifier.size(180.dp)
                 )
@@ -57,7 +57,7 @@ fun MovieDetailScreen(viewModel: MovieDetailViewModel, movieId: Int, navControll
                 Text(text = it.overview, style = MaterialTheme.typography.bodyMedium)
                 Spacer(modifier = Modifier.height(50.dp))
                 Text(
-                    text = "Note : ${it.vote_average}",
+                    text = "Note : ${it.voteAverage}",
                     style = MaterialTheme.typography.bodyMedium
                 )
 
@@ -65,3 +65,4 @@ fun MovieDetailScreen(viewModel: MovieDetailViewModel, movieId: Int, navControll
         }
     }
 }
+

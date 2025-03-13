@@ -42,7 +42,7 @@ fun MovieItem(movie: Movie, onClick: () -> Unit) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
-            painter = rememberAsyncImagePainter(model = movie.poster_path),
+            painter = rememberAsyncImagePainter(model = movie.posterPath),
             contentDescription = movie.title,
             modifier = Modifier.size(120.dp)
         )
