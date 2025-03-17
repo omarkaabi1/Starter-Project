@@ -29,5 +29,4 @@ val appModule = module{
     single {Room.databaseBuilder(androidContext(), AppDatabase::class.java, "FavoriteMovies_db")
             .fallbackToDestructiveMigration()
             .build()}
-
 }

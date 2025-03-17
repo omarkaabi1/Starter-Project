@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.worldline.insa.template.features.movies.data.local.entity.FavoriteMovie
 import com.worldline.insa.template.features.movies.data.repository.FavoriteMovieRepository
-import com.worldline.insa.template.features.movies.domain.model.Movie
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn

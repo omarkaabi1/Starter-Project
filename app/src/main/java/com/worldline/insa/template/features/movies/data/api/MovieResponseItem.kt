@@ -2,7 +2,6 @@ package com.worldline.insa.template.features.movies.data.api
 
 import com.google.gson.annotations.SerializedName
 
-
 data class MovieResponseItem(
     val adult: Boolean,
     @SerializedName("backdrop_path")

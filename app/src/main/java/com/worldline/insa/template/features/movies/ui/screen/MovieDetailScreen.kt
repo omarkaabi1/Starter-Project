@@ -60,7 +60,6 @@ fun MovieDetailScreen(viewModel: MovieDetailViewModel, movieId: Int, navControll
                     text = "Note : ${it.voteAverage}",
                     style = MaterialTheme.typography.bodyMedium
                 )
-
             }
         }
     }
