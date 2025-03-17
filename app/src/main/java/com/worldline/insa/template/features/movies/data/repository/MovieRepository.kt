@@ -1,6 +1,6 @@
 package com.worldline.insa.template.features.movies.data.repository
 
-import RemoteMovieDataSource
+import com.worldline.insa.template.features.movies.data.retrofit.RemoteMovieDataSource
 import com.worldline.insa.template.features.movies.data.api.MovieResponseItem
 import com.worldline.insa.template.features.movies.domain.model.Movie
 

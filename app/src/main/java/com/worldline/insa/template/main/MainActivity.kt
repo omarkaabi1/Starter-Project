@@ -17,8 +17,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import androidx.navigation.compose.*
+import com.worldline.insa.template.features.movies.ui.screen.FavoriteMovieScreen
 import com.worldline.insa.template.features.movies.ui.screen.MovieDetailScreen
 import com.worldline.insa.template.features.movies.ui.screen.MovieListScreen
+import com.worldline.insa.template.features.movies.ui.viewmodel.FavoriteMovieViewModel
 import com.worldline.insa.template.features.movies.ui.viewmodel.MovieDetailViewModel
 import com.worldline.insa.template.features.movies.ui.viewmodel.MovieListViewModel
 import com.worldline.insa.template.ui.theme.TemplateTheme
@@ -27,6 +29,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : ComponentActivity() {
     private val listViewModel : MovieListViewModel by viewModel()
     private val  detailViewModel : MovieDetailViewModel by viewModel()
+    private val favoriteViewModel: FavoriteMovieViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -42,13 +45,15 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding)
                     ) {
                         composable("movieList") {
-                            MovieListScreen(listViewModel, navController)
+                            MovieListScreen(listViewModel ,favoriteViewModel,navController)
                         }
                         composable("movieDetail/{movieId}") { backStackEntry ->
                             val movieId = backStackEntry.arguments?.getString("movieId")?.toIntOrNull() ?: 0
                             MovieDetailScreen(detailViewModel, movieId, navController)
                         }
-                        composable("favorites") {}
+                        composable("favorites") {
+                            FavoriteMovieScreen(favoriteViewModel, navController)
+                        }
                     }
                 }
             }

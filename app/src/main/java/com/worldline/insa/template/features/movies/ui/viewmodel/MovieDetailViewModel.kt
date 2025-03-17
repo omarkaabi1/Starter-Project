@@ -1,5 +1,6 @@
 package com.worldline.insa.template.features.movies.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.worldline.insa.template.features.movies.domain.model.Movie
@@ -20,6 +21,7 @@ class MovieDetailViewModel(private val getMovieDetailUseCase: GetMovieDetailUseC
                 _movieDetail.value = movie
             } catch (e: Exception) {
                 _movieDetail.value = null
+                Log.e("MovieDetailViewModel", "Error fetching details: ", e)
             }
         }
     }

@@ -3,7 +3,7 @@ package com.worldline.insa.template.features.movies.domain.model
 
 data class Movie(
     val adult: Boolean,
-    val backdropPath: String,
+    val backdropPath: String?,
     val id: Int,
     val originalLanguage: String,
     val originalTitle: String,

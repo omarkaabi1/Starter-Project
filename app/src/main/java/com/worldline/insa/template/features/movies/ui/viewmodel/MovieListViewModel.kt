@@ -1,5 +1,6 @@
 package com.worldline.insa.template.features.movies.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,6 +25,7 @@ class MovieListViewModel(private val getPopularMoviesUseCase: GetPopularMoviesUs
                 _movies.value = response
             } catch (exception: Exception) {
                 _movies.value = emptyList()
+                Log.e("MovieListViewModel", "Error fetching movies: ", exception)
             }
         }
     }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose)
+    alias(libs.plugins.devtools.ksp)
 }
 
 android {
@@ -90,6 +91,9 @@ dependencies {
     implementation (libs.okhttp)
     implementation (libs.logging.interceptor.v4120)
     implementation(libs.koin.android)
+    implementation (libs.androidx.room.runtime)
+    implementation (libs.androidx.room.ktx)
+    ksp (libs.androidx.room.compiler)
 
 
 
