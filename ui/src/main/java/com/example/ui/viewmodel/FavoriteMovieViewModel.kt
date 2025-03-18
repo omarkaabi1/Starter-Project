@@ -2,8 +2,7 @@ package com.example.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.model.Movie
-import com.example.domain.model.toFavoriteMovie
+import com.example.domain.model.FavoriteMovie
 import com.example.domain.usecase.AddFavoriteMovieUseCase
 import com.example.domain.usecase.GetFavoriteMoviesUseCase
 import com.example.domain.usecase.IsFavoriteMovieUseCase
@@ -14,16 +13,16 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class FavoriteMovieViewModel(
-    private val getFavoriteMoviesUseCase: GetFavoriteMoviesUseCase,
+    getFavoriteMoviesUseCase: GetFavoriteMoviesUseCase,
     private val addFavoriteMovieUseCase: AddFavoriteMovieUseCase,
     private val removeFavoriteMovieUseCase: RemoveFavoriteMovieUseCase,
     private val isFavoriteMovieUseCase: IsFavoriteMovieUseCase
 ) : ViewModel() {
 
-    val favoriteMovies: StateFlow<List<Movie>> = getFavoriteMoviesUseCase()
+    val favoriteMovies: StateFlow<List<FavoriteMovie>> = getFavoriteMoviesUseCase()
         .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
-    fun toggleFavorite(movie: Movie) {
+    fun toggleFavorite(movie: FavoriteMovie) {
         viewModelScope.launch {
             val isFav = isFavoriteMovieUseCase(movie.id).stateIn(viewModelScope).value
             if (isFav) {

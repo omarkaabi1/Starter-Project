@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.domain.model.Movie
+import com.example.domain.model.toFavoriteMovie
 import com.example.ui.viewmodel.FavoriteMovieViewModel
 import com.example.ui.viewmodel.MovieListViewModel
 
@@ -49,7 +50,7 @@ fun MovieListScreen(
         LazyColumn(modifier = Modifier.padding(innerPadding).padding(16.dp)) {
             items(movies) { movie ->
                 val isFavorite = favorites.any { it.id == movie.id }
-                MovieItem(movie, isFavorite, { favoriteViewModel.toggleFavorite(movie) }) {
+                MovieItem(movie, isFavorite, { favoriteViewModel.toggleFavorite(movie.toFavoriteMovie()) }) {
                     navController.navigate("movieDetail/${movie.id}")
                 }
             }
