@@ -10,5 +10,5 @@ import org.koin.dsl.module
 val uiModule = module {
     viewModel { MovieListViewModel(get()) }
     viewModel { MovieDetailViewModel(get()) }
-    viewModel { FavoriteMovieViewModel() }
+    viewModel { FavoriteMovieViewModel(get(),get(),get(),get(),) }
 }

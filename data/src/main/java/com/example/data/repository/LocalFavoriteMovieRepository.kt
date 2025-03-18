@@ -1,24 +1,29 @@
 package com.example.data.repository
 
 import com.example.data.local.dao.FavoriteMovieDao
-import com.example.data.local.entity.FavoriteMovie
+import com.example.domain.interfaces.FavoriteMovieRepository
+import com.example.domain.model.Movie
+import com.example.domain.model.toFavoriteMovie
+import com.example.domain.model.toMovie
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import kotlin.collections.map
 
-class LocalFavoriteMovieRepository(private val dao: FavoriteMovieDao) {
+class LocalFavoriteMovieRepository(private val dao: FavoriteMovieDao) : FavoriteMovieRepository {
 
-    suspend fun addFavorite(movie: FavoriteMovie) {
-        dao.addFavorite(movie)
+    override suspend fun addFavorite(movie: Movie) {
+        dao.addFavorite(movie.toFavoriteMovie())
     }
 
-    suspend fun removeFavorite(movie: FavoriteMovie) {
-        dao.removeFavorite(movie)
+    override suspend fun removeFavorite(movie: Movie) {
+        dao.removeFavorite(movie.toFavoriteMovie())
     }
 
-    fun getFavorites(): Flow<List<FavoriteMovie>> {
-        return dao.getFavorites()
+    override fun getFavorites(): Flow<List<Movie>> {
+        return dao.getFavorites().map { list -> list.map { it.toMovie() } }
     }
 
-    fun isFavorite(id: Int): Flow<Boolean> {
+    override fun isFavorite(id: Int): Flow<Boolean> {
         return dao.isFavorite(id)
     }
 }

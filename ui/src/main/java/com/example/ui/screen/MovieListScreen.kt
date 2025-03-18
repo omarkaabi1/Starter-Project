@@ -21,6 +21,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -40,15 +41,15 @@ fun MovieListScreen(
     navController: NavController
 ) {
     val movies by viewModel.movies.observeAsState(emptyList())
-//    val favorites by favoriteViewModel.favoriteMovies.collectAsState()
+    val favorites by favoriteViewModel.favoriteMovies.collectAsState()
 
     Scaffold(
         topBar = { TopAppBar(title = { Text("Top Movies") }) }
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding).padding(16.dp)) {
             items(movies) { movie ->
-                val isFavorite = false //favorites.any { it.id == movie.id }
-                MovieItem(movie, isFavorite, { /*favoriteViewModel.toggleFavorite(movie.toFavoriteMovie())*/ }) {
+                val isFavorite = favorites.any { it.id == movie.id }
+                MovieItem(movie, isFavorite, { favoriteViewModel.toggleFavorite(movie) }) {
                     navController.navigate("movieDetail/${movie.id}")
                 }
             }
