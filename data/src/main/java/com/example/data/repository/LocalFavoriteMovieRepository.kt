@@ -4,7 +4,7 @@ import com.example.data.local.dao.FavoriteMovieDao
 import com.example.data.local.entity.FavoriteMovie
 import kotlinx.coroutines.flow.Flow
 
-class FavoriteMovieRepository(private val dao: FavoriteMovieDao) {
+class LocalFavoriteMovieRepository(private val dao: FavoriteMovieDao) {
 
     suspend fun addFavorite(movie: FavoriteMovie) {
         dao.addFavorite(movie)

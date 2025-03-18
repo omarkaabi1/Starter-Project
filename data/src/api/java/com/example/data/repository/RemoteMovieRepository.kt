@@ -5,7 +5,7 @@ import com.example.data.retrofit.RemoteMovieDataSource
 import com.example.domain.interfaces.MovieRepository
 import com.example.domain.model.Movie
 
-class MovieRepository(private val remoteMovieDataSource: RemoteMovieDataSource) : MovieRepository {
+class RemoteMovieRepository(private val remoteMovieDataSource: RemoteMovieDataSource) : MovieRepository {
     override suspend fun getPopularMovies(): List<Movie> {
         return remoteMovieDataSource.getPopularMovies().results.map { it.toMovie() }
     }

@@ -3,9 +3,10 @@ package com.example.ui.viewmodel
 //import com.example.data.local.entity.FavoriteMovie
 //import com.example.data.repository.FavoriteMovieRepository
 import androidx.lifecycle.ViewModel
+import com.example.domain.usecase.GetFavoriteMoviesUseCase
 
 class FavoriteMovieViewModel(
-//    private val repository: FavoriteMovieRepository
+    private val getFavoriteMovies: GetFavoriteMoviesUseCase
 ) : ViewModel() {
 
 //    val favoriteMovies: StateFlow<List<FavoriteMovie>> = repository.getFavorites()

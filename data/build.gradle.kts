@@ -15,6 +15,16 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    flavorDimensions += listOf("env")
+    productFlavors {
+        create("api") {
+            dimension = "env"
+        }
+        create("local") {
+            dimension = "env"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
