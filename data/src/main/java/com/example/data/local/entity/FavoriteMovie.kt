@@ -1,7 +1,8 @@
-package com.example.domain.model
+package com.example.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.domain.model.Movie
 
 @Entity(tableName = "favorite_movies")
 data class FavoriteMovie(

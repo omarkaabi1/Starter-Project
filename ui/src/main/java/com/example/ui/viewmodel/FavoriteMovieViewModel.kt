@@ -2,7 +2,7 @@ package com.example.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.model.FavoriteMovie
+import com.example.domain.model.Movie
 import com.example.domain.usecase.AddFavoriteMovieUseCase
 import com.example.domain.usecase.GetFavoriteMoviesUseCase
 import com.example.domain.usecase.IsFavoriteMovieUseCase
@@ -19,10 +19,10 @@ class FavoriteMovieViewModel(
     private val isFavoriteMovieUseCase: IsFavoriteMovieUseCase
 ) : ViewModel() {
 
-    val favoriteMovies: StateFlow<List<FavoriteMovie>> = getFavoriteMoviesUseCase()
+    val favoriteMovies: StateFlow<List<Movie>> = getFavoriteMoviesUseCase()
         .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
-    fun toggleFavorite(movie: FavoriteMovie) {
+    fun toggleFavorite(movie: Movie) {
         viewModelScope.launch {
             val isFav = isFavoriteMovieUseCase(movie.id).stateIn(viewModelScope).value
             if (isFav) {
